@@ -234,7 +234,7 @@
                         <!-- Quick Trust Highlights -->
                         <div class="pt-6 border-t border-studio-border grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
                             <div>
-                                <div class="font-serif text-2xl font-semibold text-studio-dark">1,400+</div>
+                                <div class="font-serif text-2xl font-semibold text-studio-dark">100+</div>
                                 <div class="text-[11px] text-studio-subtle mt-0.5 font-medium">Routines Audited</div>
                             </div>
                             <div>
@@ -393,6 +393,13 @@
                         </ul>
                     </div>
 
+                </div>
+                <!-- Sample PDF Action Button -->
+                <div class="mt-8 text-center">
+                    <button onclick="openModal('sample-pdf-modal')" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-sand-100 hover:bg-sand-200 text-studio-dark font-semibold text-xs transition-all border border-studio-border">
+                        <i data-lucide="file-text" class="w-4 h-4 text-rosewood-600"></i>
+                        <span>Preview a Sample PDF Report</span>
+                    </button>
                 </div>
 
             </div>
@@ -597,7 +604,56 @@
     </footer>
 
     <!-- MODALS & DEDICATED LINKED PAGES -->
+    
+<!-- SAMPLE PDF PREVIEW MODAL -->
+    <div id="sample-pdf-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('sample-pdf-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
 
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Sample Client PDF</span>
+                <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-1">Your Customized Audit Report</h3>
+                <p class="text-xs text-studio-subtle">Here is an example of the 1-page PDF you receive in 48 hours.</p>
+            </div>
+
+            <div class="bg-studio-cream p-5 rounded-2xl border border-studio-border space-y-4 text-xs">
+                <div class="flex justify-between items-center pb-3 border-b border-studio-border font-serif">
+                    <span class="font-bold text-base text-studio-dark">Client Routine Diagnosis: Sarah A.</span>
+                    <span class="text-rosewood-600 font-bold">Barrier Status: Irritated</span>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="font-bold text-studio-dark uppercase tracking-wider text-[10px] text-rosewood-700">🔴 PAUSE IMMEDIATELY (14 Days)</div>
+                    <div class="bg-white p-3 rounded-xl border border-rosewood-100 text-rosewood-900">
+                        • <strong>AH/BHA Liquid Exfoliant</strong> — Over-exfoliating skin barrier.<br>
+                        • <strong>1% Retinol Treatment</strong> — Too harsh while skin is actively stinging.
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="font-bold text-studio-dark uppercase tracking-wider text-[10px] text-cocoa-700">🟢 CONTINUE (Safe & Hydrating)</div>
+                    <div class="bg-white p-3 rounded-xl border border-studio-border text-cocoa-900">
+                        • <strong>Gentle Cleansing Lotion</strong> — Mild surfactant; keep using AM/PM.<br>
+                        • <strong>Ceramide Barrier Cream</strong> — Apply generous layer every morning & evening.
+                    </div>
+                </div>
+
+                <div class="p-3 bg-cocoa-900 text-cocoa-100 rounded-xl">
+                    <strong>💡 Expert Tip:</strong> Apply moisturizer to damp skin to trap moisture and speed up barrier healing within 5-7 days.
+                </div>
+            </div>
+
+            <div class="mt-6 text-center">
+                <a href="#audits" onclick="closeModal('sample-pdf-modal')" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider">
+                    <span>Book Your Custom Audit</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
     <!-- 1. DEDICATED BARRIER SHOP LINKED MODAL -->
     <div id="shop-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
