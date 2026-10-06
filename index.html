@@ -11,12 +11,12 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Tailwind Config for Dark Cocoa & Rosewood Palette -->
+    <!-- Tailwind Config with Warm Soft Palette -->
     <script>
         tailwind.config = {
             theme: {
@@ -49,15 +49,12 @@
                             400: '#C05C6B',
                             500: '#A33E4F',
                             600: '#862C3C',
-                            700: '#6B202D',
-                            800: '#521621',
-                            900: '#380D15'
+                            700: '#6B202D'
                         },
                         sand: {
                             100: '#F5ECE7',
                             200: '#EADCD5',
-                            300: '#D9C7BD',
-                            500: '#B39C90'
+                            300: '#D9C7BD'
                         }
                     },
                     fontFamily: {
@@ -77,23 +74,9 @@
         }
 
         .glass-header {
-            background: rgba(250, 246, 243, 0.92);
+            background: rgba(250, 246, 243, 0.94);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-        }
-
-        .glass-card {
-            background: rgba(253, 251, 249, 0.88);
-            backdrop-filter: blur(8px);
-            border: 1px solid #E8DDD5;
-        }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
         }
 
         /* Interactive Before/After Image Slider Styling */
@@ -130,52 +113,59 @@
     <!-- Toast Notification Container -->
     <div id="toast-container" class="fixed top-24 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Non-Medical Disclaimer Banner -->
+    <!-- Friendly Top Banner -->
     <div class="bg-cocoa-900 text-cocoa-100 text-[11px] sm:text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2 border-b border-cocoa-800">
-        <i data-lucide="shield-alert" class="w-3.5 h-3.5 text-rosewood-300 shrink-0"></i>
-        <span>Routine Curation & Cosmetic Support • Non-Medical Skincare Consulting</span>
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-rosewood-300 shrink-0"></i>
+        <span>Skin burning or flaking? Let's fix your routine — friendly, non-medical skincare support.</span>
     </div>
 
     <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-header transition-all duration-300 border-b border-studio-border">
+    <header class="sticky top-0 z-40 glass-header border-b border-studio-border">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-10 h-10 rounded-full bg-rosewood-50 flex items-center justify-center text-rosewood-700 transition-transform group-hover:scale-105 border border-rosewood-200">
-                    <i data-lucide="layers" class="w-5 h-5 text-rosewood-600"></i>
+                    <i data-lucide="heart-handshake" class="w-5 h-5 text-rosewood-600"></i>
                 </div>
                 <div>
                     <span class="font-serif text-2xl font-medium tracking-tight text-studio-dark block leading-none">The Barrier Studio</span>
-                    <span class="text-[10px] uppercase tracking-widest text-rosewood-600 font-bold mt-1 block">Skin Repair & Audits</span>
+                    <span class="text-[10px] uppercase tracking-widest text-rosewood-600 font-bold mt-1 block">Simple Skin Audits</span>
                 </div>
             </a>
 
             <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-7 text-xs font-semibold tracking-wider uppercase text-studio-subtle">
-                <a href="#problem" class="hover:text-cocoa-800 transition-colors">The Problem</a>
-                <a href="#simulator" class="hover:text-cocoa-800 transition-colors">Barrier Audit Tool</a>
-                <a href="#services" class="hover:text-cocoa-800 transition-colors">Audit Services</a>
-                <a href="#shop" class="hover:text-cocoa-800 transition-colors">Barrier Shop</a>
-                <a href="#how-it-works" class="hover:text-cocoa-800 transition-colors">How It Works</a>
-                <a href="#results" class="hover:text-cocoa-800 transition-colors">Results</a>
+                <a href="#why-skin-hurts" class="hover:text-cocoa-800 transition-colors">Why Skin Hurts</a>
+                <a href="#quiz" class="hover:text-cocoa-800 transition-colors">Routine Check</a>
+                <a href="#audits" class="hover:text-cocoa-800 transition-colors">Audits & Plans</a>
+                <a href="#results" class="hover:text-cocoa-800 transition-colors">Client Story</a>
+                <button onclick="openModal('shop-modal')" class="hover:text-rosewood-600 transition-colors text-rosewood-700 font-bold flex items-center gap-1">
+                    <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i> Barrier Shop
+                </button>
             </nav>
 
             <!-- Action Buttons -->
             <div class="flex items-center gap-3">
+                <!-- Shop Modal Quick Link -->
+                <button onclick="openModal('shop-modal')" class="hidden sm:flex items-center gap-1.5 px-4 py-2 rounded-full border border-rosewood-200 bg-rosewood-50 text-rosewood-800 text-xs font-semibold hover:bg-rosewood-100 transition-all">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 text-rosewood-600"></i>
+                    <span>Shop Products</span>
+                </button>
+
                 <!-- Client Portal Button -->
                 <button onclick="openModal('portal-modal')" class="p-2.5 rounded-full hover:bg-studio-border/50 text-studio-dark transition-all text-xs font-semibold flex items-center gap-1.5" title="Client Login Portal">
-                    <i data-lucide="user-check" class="w-4 h-4 text-rosewood-600"></i>
-                    <span class="hidden xl:inline">Client Portal</span>
+                    <i data-lucide="user" class="w-4 h-4 text-cocoa-700"></i>
+                    <span class="hidden xl:inline">Portal</span>
                 </button>
 
                 <!-- Saved / Cart Button -->
                 <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-full bg-sand-100 hover:bg-sand-200 text-studio-dark transition-all text-xs font-semibold flex items-center gap-1.5" aria-label="Cart & Saved Items">
-                    <i data-lucide="shopping-bag" class="w-4 h-4 text-studio-dark"></i>
+                    <i data-lucide="shopping-cart" class="w-4 h-4 text-studio-dark"></i>
                     <span id="cart-badge" class="bg-rosewood-600 text-white rounded-full text-[10px] w-4 h-4 flex items-center justify-center font-bold hidden">0</span>
                 </button>
 
                 <!-- Primary Action -->
-                <a href="#services" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-cocoa-800 text-cocoa-50 text-xs uppercase tracking-wider font-semibold hover:bg-cocoa-900 shadow-xs transition-all hover:shadow-md">
+                <a href="#audits" class="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-cocoa-800 text-cocoa-50 text-xs uppercase tracking-wider font-semibold hover:bg-cocoa-900 shadow-xs transition-all">
                     Book Audit
                 </a>
                 
@@ -188,18 +178,16 @@
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-studio-border bg-studio-cream px-6 py-6 space-y-4">
-            <a href="#problem" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">The Problem We Solve</a>
-            <a href="#simulator" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Interactive Audit Simulator</a>
-            <a href="#services" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Audit Services & Pricing</a>
-            <a href="#shop" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Curated Barrier Shop</a>
-            <a href="#how-it-works" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">How It Works</a>
-            <a href="#results" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Client Case Studies</a>
+            <a href="#why-skin-hurts" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Why Skin Hurts</a>
+            <a href="#quiz" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Quick Routine Check</a>
+            <a href="#audits" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Audit Packages</a>
+            <a href="#results" onclick="toggleMobileNav()" class="block text-sm font-semibold text-studio-dark hover:text-rosewood-600">Real Client Story</a>
+            <button onclick="toggleMobileNav(); openModal('shop-modal');" class="w-full py-2.5 rounded-full bg-rosewood-100 text-rosewood-800 text-xs font-bold text-center flex items-center justify-center gap-2">
+                <i data-lucide="shopping-bag" class="w-4 h-4"></i> Open Barrier Shop
+            </button>
             <div class="pt-4 border-t border-studio-border flex flex-col gap-2">
                 <button onclick="toggleMobileNav(); openModal('checklist-modal');" class="w-full py-2.5 rounded-full border border-rosewood-500 text-rosewood-700 text-xs font-semibold text-center">
-                    Free Emergency Checklist
-                </button>
-                <button onclick="toggleMobileNav(); openModal('portal-modal');" class="w-full py-2.5 rounded-full bg-cocoa-800 text-white text-xs font-semibold text-center">
-                    Client Portal Login
+                    Free Emergency SOS Guide
                 </button>
             </div>
         </div>
@@ -207,11 +195,7 @@
 
     <main>
         <!-- 1. HERO SECTION -->
-        <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
-            <!-- Warm Ambient Background Shapes -->
-            <div class="absolute top-0 right-1/4 w-[500px] h-[500px] bg-sand-200/50 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-10 left-10 w-80 h-80 bg-rosewood-100/40 rounded-full blur-2xl pointer-events-none"></div>
-
+        <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid lg:grid-cols-12 gap-12 items-center">
                     
@@ -219,109 +203,81 @@
                     <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
                         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rosewood-50 text-rosewood-800 text-xs font-semibold tracking-wider uppercase border border-rosewood-200">
                             <span class="w-2 h-2 rounded-full bg-rosewood-500 animate-pulse"></span>
-                            Barrier Repair & Routine Simplification
+                            Skincare should feel good, not burn.
                         </div>
                         
                         <!-- Headline -->
-                        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-studio-dark leading-[1.08]">
-                            Calm Your Skin. <br>
-                            <span class="italic font-light text-rosewood-600">Simplify Your Routine.</span>
+                        <h1 class="font-serif text-4xl sm:text-6xl font-normal tracking-tight text-studio-dark leading-[1.1]">
+                            Stop Stinging. <br>
+                            <span class="italic font-light text-rosewood-600">Simplify Your Skin.</span>
                         </h1>
                         
                         <!-- Sub-headline -->
-                        <p class="text-base sm:text-lg text-studio-subtle max-w-2xl font-normal leading-relaxed mx-auto lg:mx-0">
-                            Personalized skin routine audits and curated barrier-repair solutions that eliminate stinging, flaking, and active-overload.
+                        <p class="text-base text-studio-subtle max-w-xl font-normal leading-relaxed mx-auto lg:mx-0">
+                            Too many acids? Retinol burning your face? We audit your exact skincare bottles, tell you what to pause, and give you a simple step-by-step plan to get your glow back.
                         </p>
 
                         <!-- Dual CTAs -->
-                        <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                             <!-- Primary CTA -->
-                            <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-cocoa-50 font-semibold text-xs tracking-wider uppercase shadow-sm transition-all flex items-center justify-center gap-2.5 group">
-                                <span>Book a Routine Audit</span>
+                            <a href="#audits" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-cocoa-50 font-semibold text-xs tracking-wider uppercase shadow-sm transition-all flex items-center justify-center gap-2.5 group">
+                                <span>Get Your Routine Audited</span>
                                 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
                             </a>
-                            <!-- Secondary CTA -->
-                            <a href="#shop" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-sand-100 text-studio-dark border border-studio-border font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
-                                <i data-lucide="package" class="w-4 h-4 text-rosewood-600"></i>
-                                <span>Shop Barrier Kits</span>
-                            </a>
+                            <!-- Shop Modal CTA -->
+                            <button onclick="openModal('shop-modal')" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-white hover:bg-sand-100 text-studio-dark border border-studio-border font-semibold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2">
+                                <i data-lucide="shopping-bag" class="w-4 h-4 text-rosewood-600"></i>
+                                <span>Browse Barrier Shop</span>
+                            </button>
                         </div>
 
-                        <!-- Quick Trust Indicators -->
-                        <div class="pt-8 border-t border-studio-border grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <!-- Quick Trust Highlights -->
+                        <div class="pt-6 border-t border-studio-border grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 text-center lg:text-left">
                             <div>
-                                <div class="font-serif text-2xl sm:text-3xl font-semibold text-studio-dark">1,400+</div>
-                                <div class="text-xs text-studio-subtle mt-0.5 font-medium">Routines Audited</div>
+                                <div class="font-serif text-2xl font-semibold text-studio-dark">1,400+</div>
+                                <div class="text-[11px] text-studio-subtle mt-0.5 font-medium">Saddened Skin Fixed</div>
                             </div>
                             <div>
-                                <div class="font-serif text-2xl sm:text-3xl font-semibold text-rosewood-600">48-Hour</div>
-                                <div class="text-xs text-studio-subtle mt-0.5 font-medium">Async PDF Turnaround</div>
+                                <div class="font-serif text-2xl font-semibold text-rosewood-600">48-Hour</div>
+                                <div class="text-[11px] text-studio-subtle mt-0.5 font-medium">Easy PDF Delivery</div>
                             </div>
                             <div>
-                                <div class="font-serif text-2xl sm:text-3xl font-semibold text-cocoa-600">0% Stinging</div>
-                                <div class="text-xs text-studio-subtle mt-0.5 font-medium">Barrier First Guarantee</div>
+                                <div class="font-serif text-2xl font-semibold text-cocoa-600">0% BS</div>
+                                <div class="text-[11px] text-studio-subtle mt-0.5 font-medium">No 10-Step Routines</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Visual Hero Feature Card -->
+                    <!-- Clean Visual Card -->
                     <div class="lg:col-span-5 flex justify-center">
-                        <div class="w-full max-w-md relative">
-                            
-                            <!-- Main Visual Showcase Frame -->
-                            <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-xl border border-studio-border relative overflow-hidden">
-                                <div class="flex items-center justify-between pb-4 border-b border-studio-border">
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-3 h-3 rounded-full bg-rosewood-500"></div>
-                                        <span class="text-xs font-bold uppercase tracking-wider text-studio-dark">Active-Overload Check</span>
-                                    </div>
-                                    <span class="text-[11px] font-semibold text-rosewood-700 bg-rosewood-50 px-2.5 py-1 rounded-full border border-rosewood-200">Barrier Status: Stressed</span>
-                                </div>
+                        <div class="w-full max-w-sm bg-white p-6 rounded-3xl shadow-lg border border-studio-border text-left space-y-4">
+                            <div class="flex items-center justify-between pb-3 border-b border-studio-border">
+                                <span class="text-xs font-bold text-rosewood-700 bg-rosewood-50 px-2.5 py-1 rounded-full border border-rosewood-100">
+                                    Common Routine Mistakes
+                                </span>
+                                <i data-lucide="alert-circle" class="w-4 h-4 text-rosewood-500"></i>
+                            </div>
 
-                                <div class="py-6 space-y-3">
-                                    <div class="text-xs text-studio-subtle font-medium">Current Symptoms Detected:</div>
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1.5 rounded-lg bg-rosewood-50 text-rosewood-800 text-xs font-semibold flex items-center gap-1.5 border border-rosewood-100">
-                                            <i data-lucide="zap-off" class="w-3.5 h-3.5 text-rosewood-600"></i> Stinging with moisturizer
-                                        </span>
-                                        <span class="px-3 py-1.5 rounded-lg bg-rosewood-50 text-rosewood-800 text-xs font-semibold flex items-center gap-1.5 border border-rosewood-100">
-                                            <i data-lucide="flame" class="w-3.5 h-3.5 text-rosewood-600"></i> Retinoid redness
-                                        </span>
-                                        <span class="px-3 py-1.5 rounded-lg bg-sand-100 text-studio-dark text-xs font-semibold flex items-center gap-1.5">
-                                            <i data-lucide="droplet-off" class="w-3.5 h-3.5 text-cocoa-500"></i> Flaking T-zone
-                                        </span>
-                                    </div>
-
-                                    <div class="p-4 rounded-2xl bg-cocoa-50 border border-cocoa-200 mt-4">
-                                        <div class="text-xs font-bold text-cocoa-900 uppercase tracking-wider mb-1 flex items-center gap-1.5">
-                                            <i data-lucide="check-circle-2" class="w-4 h-4 text-rosewood-600"></i> Studio Detox Prescription
-                                        </div>
-                                        <p class="text-xs text-cocoa-800 leading-relaxed font-medium">
-                                            PAUSE: Glycolic acid + 1% Retinol.<br>
-                                            REPLACE: Ceramide lipid cream & BHA-free oats.
-                                        </p>
+                            <div class="space-y-2 text-xs">
+                                <div class="p-3 rounded-xl bg-rosewood-50 text-rosewood-900 border border-rosewood-100 flex items-start gap-2.5">
+                                    <i data-lucide="x-circle" class="w-4 h-4 text-rosewood-600 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <strong>Mixing Retinol + Glycolic Acid:</strong> Causes severe burning & peeling.
                                     </div>
                                 </div>
 
-                                <div class="pt-4 border-t border-studio-border flex items-center justify-between text-xs">
-                                    <span class="text-studio-subtle">Ready to reset your skin?</span>
-                                    <a href="#simulator" class="text-rosewood-600 font-bold hover:underline flex items-center gap-1">
-                                        Try Simulator <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
-                                    </a>
+                                <div class="p-3 rounded-xl bg-sand-100 text-cocoa-900 flex items-start gap-2.5">
+                                    <i data-lucide="x-circle" class="w-4 h-4 text-cocoa-600 shrink-0 mt-0.5"></i>
+                                    <div>
+                                        <strong>Washing with harsh scrubs:</strong> Strips your natural moisture shield.
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Floating Decorative Badge -->
-                            <div class="absolute -bottom-5 -left-5 bg-cocoa-800 text-white p-4 rounded-2xl shadow-lg border border-cocoa-700 hidden sm:flex items-center gap-3">
-                                <div class="w-9 h-9 rounded-xl bg-cocoa-700 flex items-center justify-center text-rosewood-200 shrink-0">
-                                    <i data-lucide="file-check" class="w-5 h-5"></i>
-                                </div>
-                                <div>
-                                    <div class="text-xs font-bold">Custom Routine PDF</div>
-                                    <div class="text-[11px] text-cocoa-200">What to pause & what to keep</div>
-                                </div>
+                            <div class="p-4 rounded-2xl bg-cocoa-900 text-cocoa-50 text-xs">
+                                <span class="font-bold text-rosewood-300 block mb-1">✨ The Barrier Studio Fix:</span>
+                                Pause all active acids for 10 days and switch to pure ceramide cream + soft oat cleanser.
                             </div>
-
                         </div>
                     </div>
 
@@ -329,376 +285,157 @@
             </div>
         </section>
 
-        <!-- 2. "THE PROBLEM WE SOLVE" SECTION -->
-        <section id="problem" class="py-20 bg-white border-y border-studio-border">
+        <!-- 2. "WHY YOUR SKIN IS SCREAMING" SECTION -->
+        <section id="why-skin-hurts" class="py-16 bg-white border-y border-studio-border">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
-                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3.5 py-1.5 rounded-full border border-rosewood-100">The Modern Skin Epidemic</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-studio-dark">Over-Processed, Active-Overloaded Skin</h2>
-                    <p class="text-studio-subtle text-sm sm:text-base leading-relaxed font-normal">
-                        Modern skincare marketing encourages stacking aggressive products—layering AHA peels, strong retinoids, physical scrubs, and heavy spot treatments simultaneously. The result? A destroyed lipid barrier, chronic redness, stinging water, and persistent breakouts.
+                <div class="max-w-2xl mx-auto text-center mb-12 space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-100">Simple Explanation</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-normal text-studio-dark">Why Does Skincare Suddenly Hurt?</h2>
+                    <p class="text-studio-subtle text-xs sm:text-sm leading-relaxed font-normal">
+                        Your skin barrier is like a cozy sweater. When you layer too many peels, scrubs, and retinoids at once, you pull at the threads. Here is how we fix it in 3 steps:
                     </p>
                 </div>
 
-                <!-- 3 Value Proposition Pillars -->
-                <div class="grid md:grid-cols-3 gap-8">
-                    
-                    <!-- Pillar 1 -->
-                    <div class="bg-studio-cream rounded-3xl p-8 border border-studio-border hover:border-rosewood-300 transition-all hover:shadow-md flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-rosewood-50 flex items-center justify-center text-rosewood-600 mb-6 group-hover:scale-105 transition-transform">
-                                <i data-lucide="pause-circle" class="w-6 h-6"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl font-semibold text-studio-dark mb-3">1. Radical Routine Detox</h3>
-                            <p class="text-studio-subtle text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                                We immediately strip away active irritants causing micro-tears and burning. We identify hidden fragrance, drying alcohols, and aggressive acid stacks.
-                            </p>
-                        </div>
-                        <ul class="space-y-2 border-t border-studio-border pt-4 text-xs font-medium text-studio-dark">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Immediate inflammation halt</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Pause active acids safely</li>
-                        </ul>
-                    </div>
-
-                    <!-- Pillar 2 -->
-                    <div class="bg-studio-cream rounded-3xl p-8 border border-studio-border hover:border-rosewood-300 transition-all hover:shadow-md flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-cocoa-100 flex items-center justify-center text-cocoa-800 mb-6 group-hover:scale-105 transition-transform">
-                                <i data-lucide="user-check" class="w-6 h-6"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl font-semibold text-studio-dark mb-3">2. 1-on-1 Expert Curation</h3>
-                            <p class="text-studio-subtle text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                                Every skin type is unique. Our consultation analyzes your exact product bottles, skin history, climate, and lifestyle to create a custom AM/PM roadmap.
-                            </p>
-                        </div>
-                        <ul class="space-y-2 border-t border-studio-border pt-4 text-xs font-medium text-studio-dark">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Individualized product audits</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Downloadable AM/PM PDF guide</li>
-                        </ul>
-                    </div>
-
-                    <!-- Pillar 3 -->
-                    <div class="bg-studio-cream rounded-3xl p-8 border border-studio-border hover:border-rosewood-300 transition-all hover:shadow-md flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-sand-200 flex items-center justify-center text-studio-dark mb-6 group-hover:scale-105 transition-transform">
-                                <i data-lucide="shield-check" class="w-6 h-6 text-cocoa-700"></i>
-                            </div>
-                            <h3 class="font-serif text-2xl font-semibold text-studio-dark mb-3">3. Targeted Barrier Repair</h3>
-                            <p class="text-studio-subtle text-xs sm:text-sm leading-relaxed mb-6 font-normal">
-                                We reintroduce biomimetic ceramides, free fatty acids, squalane, and soothing colloidal oats to rebuild your skin's protective moisture seal.
-                            </p>
-                        </div>
-                        <ul class="space-y-2 border-t border-studio-border pt-4 text-xs font-medium text-studio-dark">
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Bio-identical lipid replenishment</li>
-                            <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Non-comedogenic moisture seals</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- INTERACTIVE BARRIER STRESS AUDIT SIMULATOR -->
-        <section id="simulator" class="py-20 bg-studio-cream relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-studio-border relative overflow-hidden">
-                    
-                    <div class="text-center mb-8">
-                        <span class="text-xs uppercase font-bold tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Interactive Assessment</span>
-                        <h3 class="font-serif text-3xl sm:text-4xl font-normal text-studio-dark mt-2">Barrier Stress Score Simulator</h3>
-                        <p class="text-xs sm:text-sm text-studio-subtle mt-1 max-w-lg mx-auto">Select the active ingredients you currently use & your skin symptoms to calculate your barrier disruption score.</p>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-8 pb-8 border-b border-studio-border">
-                        <!-- Column 1: Actives Selection -->
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-studio-dark mb-3">1. Select your current active steps:</label>
-                            <div class="space-y-2.5" id="sim-actives-group">
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="retinoid" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Retinol / Tretinoin / Adapalene</span>
-                                </label>
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="exfoliant" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>AHA / BHA Acids (Glycolic, Salicylic, Lactic)</span>
-                                </label>
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="vitc" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Pure Vitamin C (L-Ascorbic Acid >15%)</span>
-                                </label>
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="scrub" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Physical Cleansing Brush or Facial Scrub</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Column 2: Symptoms Selection -->
-                        <div>
-                            <label class="block text-xs font-bold uppercase tracking-wider text-studio-dark mb-3">2. Select your skin symptoms:</label>
-                            <div class="space-y-2.5" id="sim-symptoms-group">
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="stinging" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Stinging/burning when applying plain water/moisturizer</span>
-                                </label>
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="flaking" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Tightness, flaking, or tight shiny skin texture</span>
-                                </label>
-                                <label class="flex items-center gap-3 p-3 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
-                                    <input type="checkbox" value="redness" onchange="calculateBarrierStress()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
-                                    <span>Persistent redness or rash-like tiny bumps</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Simulator Output Result -->
-                    <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div>
-                            <div class="text-xs text-studio-subtle font-semibold uppercase tracking-wider">Calculated Barrier Stress Score:</div>
-                            <div class="flex items-baseline gap-3 mt-1">
-                                <span class="font-serif text-4xl font-bold text-studio-dark" id="sim-score-text">0%</span>
-                                <span class="text-xs font-bold px-3 py-1 rounded-full bg-cocoa-100 text-cocoa-800 border border-cocoa-200" id="sim-status-badge">Healthy / Balanced</span>
-                            </div>
-                            <p class="text-xs text-studio-subtle mt-1" id="sim-advice-text">Select items above to simulate your routine stress level.</p>
-                        </div>
-
-                        <div class="w-full sm:w-auto">
-                            <button onclick="bookWithScore()" class="w-full sm:w-auto px-6 py-3.5 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-xs">
-                                <span>Get Your Custom Audit</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. SERVICES & PRICING GRID -->
-        <section id="services" class="py-20 bg-white border-y border-studio-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3.5 py-1.5 rounded-full border border-rosewood-200">Consultation Options</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-studio-dark mt-3">Personalized Routine Audits</h2>
-                    <p class="text-studio-subtle text-sm mt-2 font-normal">Select the level of expert guidance needed to restore your skin barrier.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-8">
-                    
-                    <!-- Service 1: Express Async -->
-                    <div class="bg-studio-cream rounded-3xl p-8 border border-studio-border hover:border-cocoa-400 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="text-xs font-bold uppercase tracking-widest text-studio-subtle mb-2">Essential</div>
-                            <h3 class="font-serif text-3xl font-normal text-studio-dark">Express Routine Audit</h3>
-                            <div class="my-4 flex items-baseline gap-1">
-                                <span class="text-3xl font-bold font-serif text-studio-dark">$49</span>
-                                <span class="text-xs text-studio-subtle">/ one-time</span>
-                            </div>
-                            <p class="text-xs text-studio-subtle leading-relaxed mb-6 font-normal">
-                                Quick 24-hour turn-around async audit for skin experiencing mild irritation or confusion on product order.
-                            </p>
-                            <ul class="space-y-3 text-xs text-studio-dark font-medium border-t border-studio-border pt-6">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> 15-Product Shelfie Audit</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> PDF AM/PM Schedule</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Ingredient Conflict Matrix</li>
-                                <li class="flex items-center gap-2 text-studio-subtle"><i data-lucide="x" class="w-4 h-4 opacity-40"></i> 1-on-1 Follow Up Chat</li>
-                            </ul>
-                        </div>
-                        <button onclick="selectService('Express Routine Audit', 49)" class="w-full mt-8 py-3.5 rounded-full border border-cocoa-800 text-cocoa-800 hover:bg-cocoa-800 hover:text-white transition-all text-xs uppercase tracking-wider font-semibold">
-                            Select Express
-                        </button>
-                    </div>
-
-                    <!-- Service 2: Full Barrier Reset (Featured) -->
-                    <div class="bg-cocoa-900 text-cocoa-50 rounded-3xl p-8 border-2 border-rosewood-500 shadow-xl flex flex-col justify-between relative transform md:-translate-y-2">
-                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-rosewood-600 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-sm">
-                            Most Popular
-                        </div>
-                        <div>
-                            <div class="text-xs font-bold uppercase tracking-widest text-rosewood-300 mb-2">Comprehensive</div>
-                            <h3 class="font-serif text-3xl font-normal text-white">Full Barrier Reset</h3>
-                            <div class="my-4 flex items-baseline gap-1">
-                                <span class="text-4xl font-bold font-serif text-white">$99</span>
-                                <span class="text-xs text-cocoa-300">/ 14-day protocol</span>
-                            </div>
-                            <p class="text-xs text-cocoa-200 leading-relaxed mb-6 font-normal">
-                                Complete async evaluation + 14-day guided reset protocol with direct messaging support for damaged barriers.
-                            </p>
-                            <ul class="space-y-3 text-xs text-cocoa-100 font-medium border-t border-cocoa-800 pt-6">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> Unlimited Shelfie Product Audit</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> Custom 14-Day Reset Protocol</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> 2 Weeks Messaging Portal Access</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> Safe Active Reintroduction Guide</li>
-                            </ul>
-                        </div>
-                        <button onclick="selectService('Full Barrier Reset', 99)" class="w-full mt-8 py-3.5 rounded-full bg-rosewood-600 hover:bg-rosewood-700 text-white transition-all text-xs uppercase tracking-wider font-semibold shadow-sm">
-                            Book Full Reset
-                        </button>
-                    </div>
-
-                    <!-- Service 3: VIP Concierge -->
-                    <div class="bg-studio-cream rounded-3xl p-8 border border-studio-border hover:border-cocoa-400 transition-all flex flex-col justify-between">
-                        <div>
-                            <div class="text-xs font-bold uppercase tracking-widest text-studio-subtle mb-2">VIP Experience</div>
-                            <h3 class="font-serif text-3xl font-normal text-studio-dark">Concierge Repair Kit</h3>
-                            <div class="my-4 flex items-baseline gap-1">
-                                <span class="text-3xl font-bold font-serif text-studio-dark">$179</span>
-                                <span class="text-xs text-studio-subtle">/ includes products</span>
-                            </div>
-                            <p class="text-xs text-studio-subtle leading-relaxed mb-6 font-normal">
-                                Audit consultation plus a shipped physical Barrier Emergency Repair Kit tailored to your exact skin type.
-                            </p>
-                            <ul class="space-y-3 text-xs text-studio-dark font-medium border-t border-studio-border pt-6">
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Full Reset Protocol Included</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Shipped Full-Size Repair Kit</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> 30 Days Direct Chat Support</li>
-                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Priority 12-hr Response Guarantee</li>
-                            </ul>
-                        </div>
-                        <button onclick="selectService('Concierge Repair Kit', 179)" class="w-full mt-8 py-3.5 rounded-full border border-cocoa-800 text-cocoa-800 hover:bg-cocoa-800 hover:text-white transition-all text-xs uppercase tracking-wider font-semibold">
-                            Select VIP Concierge
-                        </button>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 4. CURATED BARRIER SHOP -->
-        <section id="shop" class="py-20 bg-studio-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600">Formulated For Damaged Skin</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-studio-dark mt-1">Curated Barrier Essentials</h2>
-                    </div>
-                    <p class="text-xs text-studio-subtle max-w-sm mt-2 md:mt-0">
-                        100% fragrance-free, essential-oil-free, biomimetic formulations created specifically to restore compromised moisture lipid barriers.
-                    </p>
-                </div>
-
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- Product 1 -->
-                    <div class="bg-white rounded-2xl p-5 border border-studio-border flex flex-col justify-between hover:shadow-lg transition-all group">
-                        <div>
-                            <div class="h-48 bg-sand-100 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
-                                <i data-lucide="droplet" class="w-12 h-12 text-rosewood-500 opacity-80 group-hover:scale-110 transition-transform"></i>
-                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full text-cocoa-800">Best Seller</span>
-                            </div>
-                            <h4 class="font-serif text-xl font-semibold text-studio-dark">Ceramide Lipid Recovery Cream</h4>
-                            <p class="text-xs text-studio-subtle mt-1 font-normal">3:1:1 ratio biomimetic lipids with 5% Niacinamide & Oat Butter.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-studio-border flex items-center justify-between">
-                            <span class="font-serif text-lg font-bold text-studio-dark">$38.00</span>
-                            <button onclick="addToCart('Ceramide Lipid Recovery Cream', 38)" class="p-2.5 rounded-full bg-cocoa-800 text-white hover:bg-rosewood-600 transition-colors">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 2 -->
-                    <div class="bg-white rounded-2xl p-5 border border-studio-border flex flex-col justify-between hover:shadow-lg transition-all group">
-                        <div>
-                            <div class="h-48 bg-sand-100 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
-                                <i data-lucide="sparkles" class="w-12 h-12 text-cocoa-600 opacity-80 group-hover:scale-110 transition-transform"></i>
-                            </div>
-                            <h4 class="font-serif text-xl font-semibold text-studio-dark">Colloidal Oat Jelly Cleanser</h4>
-                            <p class="text-xs text-studio-subtle mt-1 font-normal">Sulfate-free non-foaming soothing cleanser for stinging skin.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-studio-border flex items-center justify-between">
-                            <span class="font-serif text-lg font-bold text-studio-dark">$26.00</span>
-                            <button onclick="addToCart('Colloidal Oat Jelly Cleanser', 26)" class="p-2.5 rounded-full bg-cocoa-800 text-white hover:bg-rosewood-600 transition-colors">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 3 -->
-                    <div class="bg-white rounded-2xl p-5 border border-studio-border flex flex-col justify-between hover:shadow-lg transition-all group">
-                        <div>
-                            <div class="h-48 bg-sand-100 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
-                                <i data-lucide="shield" class="w-12 h-12 text-rosewood-600 opacity-80 group-hover:scale-110 transition-transform"></i>
-                                <span class="absolute top-3 left-3 bg-rosewood-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">New</span>
-                            </div>
-                            <h4 class="font-serif text-xl font-semibold text-studio-dark">Squalane & Ectoin Rescue Serum</h4>
-                            <p class="text-xs text-studio-subtle mt-1 font-normal">Intense hydration barrier shield with 2% Ectoin moisture seal.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-studio-border flex items-center justify-between">
-                            <span class="font-serif text-lg font-bold text-studio-dark">$44.00</span>
-                            <button onclick="addToCart('Squalane & Ectoin Rescue Serum', 44)" class="p-2.5 rounded-full bg-cocoa-800 text-white hover:bg-rosewood-600 transition-colors">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Product 4 -->
-                    <div class="bg-white rounded-2xl p-5 border border-studio-border flex flex-col justify-between hover:shadow-lg transition-all group">
-                        <div>
-                            <div class="h-48 bg-sand-100 rounded-xl mb-4 flex items-center justify-center relative overflow-hidden">
-                                <i data-lucide="box" class="w-12 h-12 text-cocoa-700 opacity-80 group-hover:scale-110 transition-transform"></i>
-                                <span class="absolute top-3 left-3 bg-cocoa-800 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">Save $15</span>
-                            </div>
-                            <h4 class="font-serif text-xl font-semibold text-studio-dark">Emergency Barrier Rescue Kit</h4>
-                            <p class="text-xs text-studio-subtle mt-1 font-normal">Full 3-step bundle: Cleanser + Serum + Lipid Cream.</p>
-                        </div>
-                        <div class="mt-6 pt-4 border-t border-studio-border flex items-center justify-between">
-                            <span class="font-serif text-lg font-bold text-studio-dark">$93.00</span>
-                            <button onclick="addToCart('Emergency Barrier Rescue Kit', 93)" class="p-2.5 rounded-full bg-cocoa-800 text-white hover:bg-rosewood-600 transition-colors">
-                                <i data-lucide="plus" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 5. HOW IT WORKS -->
-        <section id="how-it-works" class="py-20 bg-white border-y border-studio-border">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
-                <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600">Simple Process</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-studio-dark mt-2">How The Barrier Audit Works</h2>
-                </div>
-
-                <div class="grid md:grid-cols-4 gap-8 relative">
-                    
+                <div class="grid md:grid-cols-3 gap-6">
                     <!-- Step 1 -->
-                    <div class="space-y-3 relative">
-                        <div class="w-12 h-12 rounded-full bg-rosewood-50 text-rosewood-700 font-serif text-2xl font-bold flex items-center justify-center border border-rosewood-200">1</div>
-                        <h3 class="font-serif text-xl font-semibold text-studio-dark">Submit Shelfie</h3>
-                        <p class="text-xs text-studio-subtle leading-relaxed">Upload photos of your active skincare products, ingredients list, and current skin photos.</p>
+                    <div class="bg-studio-cream rounded-2xl p-6 border border-studio-border">
+                        <div class="w-10 h-10 rounded-xl bg-rosewood-100 text-rosewood-700 flex items-center justify-center font-bold text-sm mb-4">1</div>
+                        <h3 class="font-serif text-xl font-semibold text-studio-dark mb-2">Hit The Pause Button</h3>
+                        <p class="text-studio-subtle text-xs leading-relaxed">
+                            We immediately tell you which bottles are burning your face so your skin can rest.
+                        </p>
                     </div>
 
                     <!-- Step 2 -->
-                    <div class="space-y-3 relative">
-                        <div class="w-12 h-12 rounded-full bg-rosewood-50 text-rosewood-700 font-serif text-2xl font-bold flex items-center justify-center border border-rosewood-200">2</div>
-                        <h3 class="font-serif text-xl font-semibold text-studio-dark">Expert Audit</h3>
-                        <p class="text-xs text-studio-subtle leading-relaxed">Our specialists analyze product conflicts, active stacking, and irritants within 48 hours.</p>
+                    <div class="bg-studio-cream rounded-2xl p-6 border border-studio-border">
+                        <div class="w-10 h-10 rounded-xl bg-cocoa-100 text-cocoa-800 flex items-center justify-center font-bold text-sm mb-4">2</div>
+                        <h3 class="font-serif text-xl font-semibold text-studio-dark mb-2">Get Your Custom PDF</h3>
+                        <p class="text-studio-subtle text-xs leading-relaxed">
+                            A super easy 1-page guide showing exactly what to put on morning and night.
+                        </p>
                     </div>
 
                     <!-- Step 3 -->
-                    <div class="space-y-3 relative">
-                        <div class="w-12 h-12 rounded-full bg-rosewood-50 text-rosewood-700 font-serif text-2xl font-bold flex items-center justify-center border border-rosewood-200">3</div>
-                        <h3 class="font-serif text-xl font-semibold text-studio-dark">Receive PDF Plan</h3>
-                        <p class="text-xs text-studio-subtle leading-relaxed">Get your customized AM/PM routine roadmap detailing what to pause, keep, and adjust.</p>
+                    <div class="bg-studio-cream rounded-2xl p-6 border border-studio-border">
+                        <div class="w-10 h-10 rounded-xl bg-sand-200 text-cocoa-900 flex items-center justify-center font-bold text-sm mb-4">3</div>
+                        <h3 class="font-serif text-xl font-semibold text-studio-dark mb-2">Rebuild & Glow</h3>
+                        <p class="text-studio-subtle text-xs leading-relaxed">
+                            Soften your skin with soothing ingredients that stop stinging once and for all.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. INTERACTIVE QUIZ / CHECK -->
+        <section id="quiz" class="py-16 bg-studio-cream">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-studio-border text-center">
+                    <span class="text-xs uppercase font-bold tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">10-Second Check</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-normal text-studio-dark mt-2">Is Your Skin Barrier Damaged?</h3>
+                    <p class="text-xs text-studio-subtle mt-1 mb-6">Check any box that feels true for you right now:</p>
+
+                    <div class="space-y-3 text-left max-w-lg mx-auto" id="quiz-options">
+                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
+                            <input type="checkbox" onchange="checkQuizScore()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
+                            <span>My plain face cream or moisturizer stings when I put it on.</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
+                            <input type="checkbox" onchange="checkQuizScore()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
+                            <span>My skin feels super tight, shiny, or flaky around my nose/mouth.</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-3.5 rounded-xl border border-studio-border hover:bg-studio-cream cursor-pointer transition-colors text-xs font-medium text-studio-dark">
+                            <input type="checkbox" onchange="checkQuizScore()" class="rounded text-rosewood-600 focus:ring-rosewood-500 w-4 h-4">
+                            <span>I use retinol and acid peels/toners in the same week.</span>
+                        </label>
                     </div>
 
-                    <!-- Step 4 -->
-                    <div class="space-y-3 relative">
-                        <div class="w-12 h-12 rounded-full bg-rosewood-50 text-rosewood-700 font-serif text-2xl font-bold flex items-center justify-center border border-rosewood-200">4</div>
-                        <h3 class="font-serif text-xl font-semibold text-studio-dark">Skin Barrier Reset</h3>
-                        <p class="text-xs text-studio-subtle leading-relaxed">Follow your 14-day protocol to eliminate stinging and restore natural skin resilience.</p>
+                    <div class="mt-6 pt-6 border-t border-studio-border">
+                        <div class="text-sm font-bold text-studio-dark" id="quiz-result-text">Select options above to check your skin</div>
+                        <a href="#audits" class="inline-flex items-center justify-center gap-2 mt-4 px-6 py-3 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider transition-all">
+                            <span>See Audit Plans</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SERVICES & AUDITS -->
+        <section id="audits" class="py-16 bg-white border-y border-studio-border">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-xl mx-auto mb-12">
+                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600">Choose Your Plan</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-normal text-studio-dark mt-2">Simple Skincare Audits</h2>
+                    <p class="text-studio-subtle text-xs sm:text-sm mt-1">No confusing medical jargon. Just clear advice on your current bottles.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Express Plan -->
+                    <div class="bg-studio-cream rounded-3xl p-6 border border-studio-border flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-studio-subtle">Fast & Easy</span>
+                            <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-1">Express Routine Audit</h3>
+                            <div class="my-3 flex items-baseline gap-1">
+                                <span class="text-3xl font-bold font-serif text-studio-dark">$49</span>
+                                <span class="text-xs text-studio-subtle">/ one-time</span>
+                            </div>
+                            <p class="text-xs text-studio-subtle mb-4">Perfect if you just want to know what to keep and what to throw away.</p>
+                            <ul class="space-y-2 text-xs text-studio-dark font-medium border-t border-studio-border pt-4">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Audit up to 10 products</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> Simple AM/PM PDF Guide</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-600"></i> 48-Hour Email Delivery</li>
+                            </ul>
+                        </div>
+                        <button onclick="selectService('Express Routine Audit', 49)" class="w-full mt-6 py-3 rounded-full border border-cocoa-800 text-cocoa-800 hover:bg-cocoa-800 hover:text-white transition-all text-xs uppercase tracking-wider font-semibold">
+                            Get Express Audit
+                        </button>
+                    </div>
+
+                    <!-- Reset Protocol (Featured) -->
+                    <div class="bg-cocoa-900 text-cocoa-50 rounded-3xl p-6 border-2 border-rosewood-500 shadow-lg flex flex-col justify-between relative">
+                        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-rosewood-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-0.5 rounded-full">
+                            Most Loved
+                        </div>
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-rosewood-300">Complete Reset</span>
+                            <h3 class="font-serif text-2xl font-semibold text-white mt-1">14-Day Skin Reset</h3>
+                            <div class="my-3 flex items-baseline gap-1">
+                                <span class="text-3xl font-bold font-serif text-white">$99</span>
+                                <span class="text-xs text-cocoa-300">/ 14 days support</span>
+                            </div>
+                            <p class="text-xs text-cocoa-200 mb-4">Includes full audit + 2 weeks of direct chat with our skincare team.</p>
+                            <ul class="space-y-2 text-xs text-cocoa-100 font-medium border-t border-cocoa-800 pt-4">
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> Audit all your skincare products</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> Custom 14-Day SOS Protocol</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-rosewood-400"></i> 1-on-1 Chat Messaging Access</li>
+                            </ul>
+                        </div>
+                        <button onclick="selectService('14-Day Skin Reset', 99)" class="w-full mt-6 py-3 rounded-full bg-rosewood-600 hover:bg-rosewood-700 text-white transition-all text-xs uppercase tracking-wider font-semibold">
+                            Start 14-Day Reset
+                        </button>
+                    </div>
+
+                    <!-- Shop Feature Box replacing embedded shop grid -->
+                    <div class="bg-rosewood-50 rounded-3xl p-6 border border-rosewood-200 flex flex-col justify-between text-studio-dark">
+                        <div>
+                            <div class="w-8 h-8 rounded-full bg-rosewood-200 text-rosewood-800 flex items-center justify-center mb-3">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-rosewood-700">Need Gentle Products?</span>
+                            <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-1">Curated Barrier Shop</h3>
+                            <p class="text-xs text-studio-subtle mt-2 leading-relaxed">
+                                Looking for fragrance-free, extra-soothing creams & cleansers made specifically for burning, delicate skin?
+                            </p>
+                        </div>
+                        <button onclick="openModal('shop-modal')" class="w-full mt-6 py-3 rounded-full bg-cocoa-800 text-white hover:bg-cocoa-900 transition-all text-xs uppercase tracking-wider font-semibold flex items-center justify-center gap-2">
+                            <span>Open Barrier Shop</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </button>
                     </div>
 
                 </div>
@@ -706,64 +443,60 @@
             </div>
         </section>
 
-        <!-- 6. RESULTS & INTERACTIVE BEFORE/AFTER -->
-        <section id="results" class="py-20 bg-studio-cream">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 5. REAL RESULTS (LIMITED TO ONE TESTIMONIAL) -->
+        <section id="results" class="py-16 bg-studio-cream">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    
-                    <!-- Left Column: Text & Testimonials -->
-                    <div class="lg:col-span-6 space-y-6">
-                        <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Real Transformations</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-studio-dark">Proven Barrier Recovery</h2>
-                        <p class="text-xs sm:text-sm text-studio-subtle leading-relaxed">
-                            "I had tried every moisturizer on the market, but my skin burned when applying plain water. The Barrier Studio identified that my cleanser + vitamin C were silently destroying my skin. Within 10 days of their custom detox, my face stopped stinging completely!"
-                        </p>
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Real Client Story</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-normal text-studio-dark mt-2">"My skin stopped stinging in 5 days."</h2>
+                </div>
 
-                        <div class="pt-4 flex items-center gap-4 border-t border-studio-border">
-                            <div class="w-12 h-12 rounded-full bg-cocoa-800 text-rosewood-200 flex items-center justify-center font-serif font-bold text-xl">
-                                SA
+                <!-- Single Featured Testimonial Card -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-studio-border shadow-md">
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <div class="md:col-span-7 space-y-4">
+                            <div class="flex items-center gap-1 text-rosewood-500 text-xs">
+                                ★★★★★ <span class="text-studio-subtle ml-2 font-semibold">Verified Review</span>
                             </div>
-                            <div>
-                                <div class="font-serif text-lg font-semibold text-studio-dark">Sarah A.</div>
-                                <div class="text-xs text-rosewood-600 font-medium">Verified Client • 14-Day Reset Protocol</div>
+                            <p class="text-xs sm:text-sm text-studio-dark leading-relaxed font-normal">
+                                "I was stacking 3 different acid serums and my face was literally burning whenever I washed it with water. The Barrier Studio told me exactly what to pause. My face hasn't felt this calm and smooth in years!"
+                            </p>
+                            <div class="flex items-center gap-3 pt-2">
+                                <div class="w-10 h-10 rounded-full bg-rosewood-100 text-rosewood-800 font-bold flex items-center justify-center text-sm">
+                                    SA
+                                </div>
+                                <div>
+                                    <div class="font-serif text-base font-semibold text-studio-dark">Sarah A., 24</div>
+                                    <div class="text-[11px] text-studio-subtle">Completed 14-Day Reset Protocol</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Right Column: Interactive Before/After Visual -->
-                    <div class="lg:col-span-6">
-                        <div class="bg-white p-4 rounded-3xl border border-studio-border shadow-lg">
-                            <div class="before-after-container rounded-2xl h-80 sm:h-96 w-full relative" id="before-after-slider">
-                                <!-- After Image (Background) -->
-                                <div class="absolute inset-0 bg-gradient-to-tr from-rosewood-100 to-sand-100 flex items-center justify-center text-center p-6">
-                                    <div>
-                                        <span class="text-xs font-bold text-rosewood-700 bg-white px-3 py-1 rounded-full shadow-xs uppercase tracking-wider">Day 14: Restored Barrier</span>
-                                        <p class="text-sm font-serif text-studio-dark mt-3 max-w-xs mx-auto font-medium">Calm, calm hydration, zero redness, healthy moisture glow.</p>
-                                    </div>
+                        <!-- Before/After Visual -->
+                        <div class="md:col-span-5">
+                            <div class="before-after-container rounded-2xl h-56 w-full relative border border-studio-border" id="before-after-slider">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-rosewood-100 to-sand-100 flex items-center justify-center text-center p-4">
+                                    <span class="text-[11px] font-bold text-rosewood-800 bg-white px-2.5 py-1 rounded-full shadow-xs uppercase">Day 14: Calm & Glowing</span>
                                 </div>
-
-                                <!-- Before Image (Overlay) -->
-                                <div class="before-after-overlay bg-gradient-to-br from-rosewood-200 to-sand-300 flex items-center justify-center text-center p-6 border-r border-white">
-                                    <div class="w-full">
-                                        <span class="text-xs font-bold text-cocoa-900 bg-white px-3 py-1 rounded-full shadow-xs uppercase tracking-wider">Day 1: Damaged Barrier</span>
-                                        <p class="text-sm font-serif text-cocoa-900 mt-3 max-w-xs mx-auto font-medium">Flaking, active burning, severe erythema & redness.</p>
-                                    </div>
+                                <div class="before-after-overlay bg-gradient-to-br from-rosewood-200 to-sand-300 flex items-center justify-center text-center p-4 border-r border-white">
+                                    <span class="text-[11px] font-bold text-cocoa-900 bg-white px-2.5 py-1 rounded-full shadow-xs uppercase">Day 1: Burning & Flaking</span>
                                 </div>
-
-                                <!-- Handle -->
                                 <div class="before-after-handle flex items-center justify-center">
-                                    <div class="w-8 h-8 rounded-full bg-white text-cocoa-800 shadow-md flex items-center justify-center text-xs font-bold border border-studio-border">
-                                        ↔
-                                    </div>
+                                    <div class="w-6 h-6 rounded-full bg-white text-cocoa-800 shadow-md flex items-center justify-center text-[10px] font-bold">↔</div>
                                 </div>
                             </div>
-                            <div class="text-center text-[11px] text-studio-subtle mt-3 font-medium">
-                                Drag slider left and right to inspect skin progress
-                            </div>
+                            <p class="text-center text-[10px] text-studio-subtle mt-2">Drag slider to compare</p>
                         </div>
                     </div>
+                </div>
 
+                <!-- Linked Button to View All Testimonials Modal -->
+                <div class="text-center mt-8">
+                    <button onclick="openModal('reviews-modal')" class="px-6 py-3 rounded-full bg-white border border-studio-border text-studio-dark hover:bg-sand-100 font-semibold text-xs uppercase tracking-wider transition-all inline-flex items-center gap-2 shadow-xs">
+                        <i data-lucide="message-square" class="w-4 h-4 text-rosewood-600"></i>
+                        <span>Read More Client Stories</span>
+                    </button>
                 </div>
 
             </div>
@@ -771,173 +504,218 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-cocoa-900 text-cocoa-100 py-16 border-t border-cocoa-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-cocoa-800">
-                
-                <!-- Brand Info -->
-                <div class="space-y-4 md:col-span-1">
-                    <div class="flex items-center gap-2">
-                        <div class="w-8 h-8 rounded-full bg-rosewood-600 text-white flex items-center justify-center">
-                            <i data-lucide="layers" class="w-4 h-4"></i>
-                        </div>
-                        <span class="font-serif text-2xl font-medium text-white">The Barrier Studio</span>
+    <footer class="bg-cocoa-900 text-cocoa-100 py-12 border-t border-cocoa-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-cocoa-800">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-rosewood-600 text-white flex items-center justify-center">
+                        <i data-lucide="heart-handshake" class="w-4 h-4"></i>
                     </div>
-                    <p class="text-xs text-cocoa-300 leading-relaxed">
-                        Non-medical cosmetic skincare audits and barrier repair guidance. Rebuild your lipid shield today.
-                    </p>
+                    <span class="font-serif text-xl text-white">The Barrier Studio</span>
                 </div>
-
-                <!-- Navigation Links -->
-                <div>
-                    <h5 class="text-xs font-bold uppercase tracking-widest text-rosewood-300 mb-4">Navigation</h5>
-                    <ul class="space-y-2 text-xs text-cocoa-200">
-                        <li><a href="#problem" class="hover:text-white transition-colors">The Problem</a></li>
-                        <li><a href="#simulator" class="hover:text-white transition-colors">Barrier Audit Tool</a></li>
-                        <li><a href="#services" class="hover:text-white transition-colors">Audit Packages</a></li>
-                        <li><a href="#shop" class="hover:text-white transition-colors">Barrier Shop</a></li>
-                    </ul>
+                <div class="flex flex-wrap justify-center gap-6 text-xs text-cocoa-200">
+                    <button onclick="openModal('shop-modal')" class="hover:text-white">Barrier Shop</button>
+                    <button onclick="openModal('reviews-modal')" class="hover:text-white">Client Reviews</button>
+                    <button onclick="openModal('checklist-modal')" class="hover:text-white">Free Guide</button>
+                    <button onclick="openModal('portal-modal')" class="hover:text-white">Client Portal</button>
                 </div>
-
-                <!-- Resources -->
-                <div>
-                    <h5 class="text-xs font-bold uppercase tracking-widest text-rosewood-300 mb-4">Resources</h5>
-                    <ul class="space-y-2 text-xs text-cocoa-200">
-                        <li><button onclick="openModal('checklist-modal')" class="hover:text-white transition-colors text-left">Free Emergency Guide</button></li>
-                        <li><button onclick="openModal('portal-modal')" class="hover:text-white transition-colors text-left">Client Portal Login</button></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                    </ul>
-                </div>
-
-                <!-- Newsletter -->
-                <div>
-                    <h5 class="text-xs font-bold uppercase tracking-widest text-rosewood-300 mb-4">Join The Barrier Newsletter</h5>
-                    <p class="text-xs text-cocoa-300 mb-3">Weekly tips on active management and ingredient breakdowns.</p>
-                    <form onsubmit="handleNewsletter(event)" class="space-y-2">
-                        <input type="email" required placeholder="Enter your email" class="w-full px-3.5 py-2.5 rounded-xl bg-cocoa-800 text-xs text-white border border-cocoa-700 focus:outline-none focus:border-rosewood-500">
-                        <button type="submit" class="w-full py-2.5 rounded-xl bg-rosewood-600 hover:bg-rosewood-700 text-white text-xs font-semibold tracking-wider uppercase transition-colors">Subscribe</button>
-                    </form>
-                </div>
-
             </div>
-
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-cocoa-400 gap-4">
-                <p>© 2026 The Barrier Studio. All rights reserved.</p>
-                <p class="text-center sm:text-right">Disclaimer: Our services provide cosmetic routine curation and do not constitute medical advice or dermatological diagnosis.</p>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-cocoa-400 gap-2">
+                <p>© 2026 The Barrier Studio. Simple, gentle skincare advice.</p>
+                <p>Not medical advice — purely cosmetic routine support.</p>
             </div>
         </div>
     </footer>
 
-    <!-- MODALS & DRAWERS -->
+    <!-- MODALS & DEDICATED LINKED PAGES -->
 
-    <!-- 1. Booking Modal -->
+    <!-- 1. DEDICATED BARRIER SHOP LINKED MODAL -->
+    <div id="shop-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('shop-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-center max-w-md mx-auto mb-8">
+                <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Fragrance-Free Essentials</span>
+                <h3 class="font-serif text-3xl font-semibold text-studio-dark mt-2">Curated Barrier Shop</h3>
+                <p class="text-xs text-studio-subtle mt-1">Extra-gentle formulas created specifically for skin that burns or stings easily.</p>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-studio-cream rounded-2xl p-5 border border-studio-border flex flex-col justify-between">
+                    <div>
+                        <div class="h-36 bg-white rounded-xl mb-3 flex items-center justify-center relative">
+                            <i data-lucide="droplet" class="w-10 h-10 text-rosewood-500"></i>
+                            <span class="absolute top-2 left-2 bg-rosewood-100 text-rosewood-800 text-[10px] font-bold px-2 py-0.5 rounded-full">Top Pick</span>
+                        </div>
+                        <h4 class="font-serif text-lg font-semibold text-studio-dark">Ceramide Cream</h4>
+                        <p class="text-xs text-studio-subtle mt-1">Deep moisture cream that soothes stinging on contact.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-studio-border flex items-center justify-between">
+                        <span class="font-serif text-base font-bold text-studio-dark">$38.00</span>
+                        <button onclick="addToCart('Ceramide Cream', 38)" class="px-3 py-1.5 rounded-full bg-cocoa-800 text-white text-xs font-semibold hover:bg-rosewood-600">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-studio-cream rounded-2xl p-5 border border-studio-border flex flex-col justify-between">
+                    <div>
+                        <div class="h-36 bg-white rounded-xl mb-3 flex items-center justify-center relative">
+                            <i data-lucide="sparkles" class="w-10 h-10 text-cocoa-600"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-semibold text-studio-dark">Soft Oat Cleanser</h4>
+                        <p class="text-xs text-studio-subtle mt-1">Gently lifts oil without making your skin feel tight.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-studio-border flex items-center justify-between">
+                        <span class="font-serif text-base font-bold text-studio-dark">$26.00</span>
+                        <button onclick="addToCart('Soft Oat Cleanser', 26)" class="px-3 py-1.5 rounded-full bg-cocoa-800 text-white text-xs font-semibold hover:bg-rosewood-600">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-studio-cream rounded-2xl p-5 border border-studio-border flex flex-col justify-between">
+                    <div>
+                        <div class="h-36 bg-white rounded-xl mb-3 flex items-center justify-center relative">
+                            <i data-lucide="shield" class="w-10 h-10 text-rosewood-600"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-semibold text-studio-dark">Rescue Serum</h4>
+                        <p class="text-xs text-studio-subtle mt-1">Lightweight hydration layer for extra dry days.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-studio-border flex items-center justify-between">
+                        <span class="font-serif text-base font-bold text-studio-dark">$44.00</span>
+                        <button onclick="addToCart('Rescue Serum', 44)" class="px-3 py-1.5 rounded-full bg-cocoa-800 text-white text-xs font-semibold hover:bg-rosewood-600">
+                            + Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center pt-4 border-t border-studio-border">
+                <button onclick="closeModal('shop-modal'); toggleCartDrawer();" class="px-6 py-2.5 rounded-full bg-cocoa-800 text-white font-semibold text-xs uppercase tracking-wider">
+                    View Shopping Cart
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. ALL CLIENT REVIEWS LINKED MODAL -->
+    <div id="reviews-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('reviews-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Real Stories</span>
+                <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-1">More Client Reviews</h3>
+            </div>
+
+            <div class="space-y-4 text-xs">
+                <div class="p-4 rounded-2xl bg-studio-cream border border-studio-border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-studio-dark">Maya T., 21</span>
+                        <span class="text-rosewood-600 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-studio-subtle leading-relaxed">
+                        "I thought I needed a 10-step routine to fix my acne, but it was making everything worse. The audit was so easy to read and saved my skin!"
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-studio-cream border border-studio-border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-studio-dark">Chloe R., 26</span>
+                        <span class="text-rosewood-600 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-studio-subtle leading-relaxed">
+                        "Finally someone explained why my face was burning from vitamin C. Worth every penny!"
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-studio-cream border border-studio-border">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-studio-dark">Jessica M., 23</span>
+                        <span class="text-rosewood-600 font-bold">★★★★★</span>
+                    </div>
+                    <p class="text-studio-subtle leading-relaxed">
+                        "The 14-day reset protocol is super simple. My redness went down in just a few days."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. BOOKING MODAL -->
     <div id="booking-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative max-h-[90vh] overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 border border-studio-border shadow-2xl relative">
             <button onclick="closeModal('booking-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600">Reserve Consultation</span>
-            <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-1" id="booking-service-title">Book Routine Audit</h3>
-            <p class="text-xs text-studio-subtle mt-1">Fill out the brief details below to initiate your 48-hour routine audit.</p>
+            <h3 class="font-serif text-2xl font-semibold text-studio-dark" id="booking-service-title">Book Routine Audit</h3>
+            <p class="text-xs text-studio-subtle mt-1">We'll email you a quick link to upload photos of your product bottles.</p>
 
-            <form onsubmit="handleBookingSubmit(event)" class="mt-6 space-y-4">
+            <form onsubmit="handleBookingSubmit(event)" class="mt-4 space-y-3 text-xs">
                 <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Full Name</label>
-                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
+                    <label class="block font-bold text-studio-dark mb-1">Your Name</label>
+                    <input type="text" required placeholder="Jane Doe" class="w-full px-3.5 py-2 rounded-xl border border-studio-border focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Email Address</label>
-                    <input type="email" required placeholder="jane@example.com" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
+                    <label class="block font-bold text-studio-dark mb-1">Email Address</label>
+                    <input type="email" required placeholder="jane@example.com" class="w-full px-3.5 py-2 rounded-xl border border-studio-border focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Primary Skin Concern</label>
-                    <select class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
-                        <option>Stinging & Burning with Plain Water</option>
-                        <option>Retinoid / Acid Peeling & Redness</option>
-                        <option>Unexplainable Breakouts & Dehydration</option>
-                        <option>Routine Simplification & Detox</option>
+                    <label class="block font-bold text-studio-dark mb-1">Main Skin Issue</label>
+                    <select class="w-full px-3.5 py-2 rounded-xl border border-studio-border focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
+                        <option>My skin stings when applying moisturizer</option>
+                        <option>Retinol or acid peeling & redness</option>
+                        <option>Breakouts + severe dryness</option>
+                        <option>I just want a simpler routine</option>
                     </select>
                 </div>
 
-                <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">List 3 Active Products You Currently Use</label>
-                    <textarea rows="3" placeholder="e.g. 1% Retinol, Glycolic Cleanser, Vitamin C Serum" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none"></textarea>
-                </div>
-
-                <div class="pt-2">
-                    <button type="submit" class="w-full py-3.5 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider transition-colors shadow-sm">
-                        Confirm & Proceed to Shelfie Upload
-                    </button>
-                </div>
+                <button type="submit" class="w-full py-3 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold uppercase tracking-wider transition-colors mt-2">
+                    Submit & Start Audit
+                </button>
             </form>
         </div>
     </div>
 
-    <!-- 2. Client Portal Login Modal -->
+    <!-- 4. CLIENT PORTAL MODAL -->
     <div id="portal-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 border border-studio-border shadow-2xl relative text-center">
             <button onclick="closeModal('portal-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="text-center mb-6">
-                <div class="w-12 h-12 rounded-full bg-rosewood-50 text-rosewood-600 flex items-center justify-center mx-auto mb-3 border border-rosewood-200">
-                    <i data-lucide="user-check" class="w-6 h-6"></i>
-                </div>
-                <h3 class="font-serif text-2xl font-semibold text-studio-dark">Client Portal Access</h3>
-                <p class="text-xs text-studio-subtle mt-1">Access your custom routine PDF & direct message your consultant.</p>
-            </div>
+            <h3 class="font-serif text-2xl font-semibold text-studio-dark">Client Portal</h3>
+            <p class="text-xs text-studio-subtle mt-1 mb-4">View your custom audit PDF</p>
 
-            <form onsubmit="handlePortalLogin(event)" class="space-y-4">
+            <form onsubmit="handlePortalLogin(event)" class="space-y-3 text-xs text-left">
                 <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Email Address</label>
-                    <input type="email" required placeholder="client@example.com" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
+                    <label class="block font-bold text-studio-dark mb-1">Email</label>
+                    <input type="email" required placeholder="jane@example.com" class="w-full px-3.5 py-2 rounded-xl border border-studio-border focus:outline-none">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Access Code / Password</label>
-                    <input type="password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
+                    <label class="block font-bold text-studio-dark mb-1">Passcode</label>
+                    <input type="password" required placeholder="••••••••" class="w-full px-3.5 py-2 rounded-xl border border-studio-border focus:outline-none">
                 </div>
-                <button type="submit" class="w-full py-3.5 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider transition-colors">
-                    Login to Portal
+                <button type="submit" class="w-full py-3 rounded-full bg-cocoa-800 text-white font-semibold uppercase tracking-wider">
+                    Log In
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- 3. Free Emergency Checklist Modal -->
-    <div id="checklist-modal" class="fixed inset-0 z-50 bg-cocoa-900/60 backdrop-blur-xs flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 border border-studio-border shadow-2xl relative">
-            <button onclick="closeModal('checklist-modal')" class="absolute top-5 right-5 p-2 rounded-full hover:bg-studio-cream text-studio-dark">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <span class="text-xs font-bold uppercase tracking-widest text-rosewood-600 bg-rosewood-50 px-3 py-1 rounded-full border border-rosewood-200">Instant Download</span>
-                <h3 class="font-serif text-2xl font-semibold text-studio-dark mt-2">Free Barrier Emergency Guide</h3>
-                <p class="text-xs text-studio-subtle mt-1">Learn the top 5 ingredients to pause immediately when your skin stings.</p>
-            </div>
-
-            <form onsubmit="handleChecklistDownload(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Your Name</label>
-                    <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
-                </div>
-                <div>
-                    <label class="block text-xs font-bold text-studio-dark mb-1">Email Address</label>
-                    <input type="email" required placeholder="jane@example.com" class="w-full px-4 py-2.5 rounded-xl border border-studio-border text-xs focus:ring-1 focus:ring-rosewood-500 focus:outline-none">
-                </div>
-                <button type="submit" class="w-full py-3.5 rounded-full bg-rosewood-600 hover:bg-rosewood-700 text-white font-semibold text-xs uppercase tracking-wider transition-colors shadow-sm">
-                    Download Free PDF Guide
-                </button>
-            </form>
-        </div>
-    </div>
-
-    <!-- 4. Slide-over Shopping Cart Drawer -->
+    <!-- 5. CART DRAWER -->
     <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none hidden">
         <div class="absolute inset-0 bg-cocoa-900/50 backdrop-blur-xs transition-opacity pointer-events-auto" onclick="toggleCartDrawer()"></div>
 
@@ -954,22 +732,19 @@
                     </button>
                 </div>
 
-                <!-- Cart Items Container -->
                 <div class="p-6 flex-1 overflow-y-auto space-y-4" id="cart-items-list">
                     <div class="text-center py-12 text-studio-subtle text-xs">
-                        Your shopping cart is currently empty.
+                        Your cart is empty.
                     </div>
                 </div>
 
-                <!-- Cart Summary Footer -->
-                <div class="p-6 border-t border-studio-border bg-studio-cream space-y-4">
+                <div class="p-6 border-t border-studio-border bg-studio-cream space-y-3">
                     <div class="flex items-center justify-between text-sm font-semibold text-studio-dark">
-                        <span>Subtotal</span>
+                        <span>Total</span>
                         <span id="cart-subtotal" class="font-serif text-lg">$0.00</span>
                     </div>
-                    <p class="text-[11px] text-studio-subtle">Free complimentary shipping on barrier repair orders over $50.</p>
-                    <button onclick="checkoutCart()" class="w-full py-3.5 rounded-full bg-cocoa-800 hover:bg-cocoa-900 text-white font-semibold text-xs uppercase tracking-wider transition-colors shadow-sm">
-                        Proceed to Checkout
+                    <button onclick="checkoutCart()" class="w-full py-3 rounded-full bg-cocoa-800 text-white font-semibold text-xs uppercase tracking-wider">
+                        Checkout
                     </button>
                 </div>
 
@@ -977,57 +752,32 @@
         </div>
     </div>
 
-    <!-- JavaScript Application Logic -->
     <script>
-        // State Management
         let cart = [];
 
-        // Dynamic Barrier Stress Calculator Logic
-        function calculateBarrierStress() {
-            const activesGroup = document.querySelectorAll('#sim-actives-group input[type="checkbox"]:checked');
-            const symptomsGroup = document.querySelectorAll('#sim-symptoms-group input[type="checkbox"]:checked');
+        // Interactive Quiz Logic
+        function checkQuizScore() {
+            const checkedCount = document.querySelectorAll('#quiz-options input[type="checkbox"]:checked').length;
+            const resultEl = document.getElementById('quiz-result-text');
 
-            let score = (activesGroup.length * 15) + (symptomsGroup.length * 20);
-            score = Math.min(score, 100);
-
-            const scoreText = document.getElementById('sim-score-text');
-            const statusBadge = document.getElementById('sim-status-badge');
-            const adviceText = document.getElementById('sim-advice-text');
-
-            scoreText.textContent = `${score}%`;
-
-            if (score === 0) {
-                statusBadge.textContent = 'Healthy / Balanced';
-                statusBadge.className = 'text-xs font-bold px-3 py-1 rounded-full bg-cocoa-100 text-cocoa-800 border border-cocoa-200';
-                adviceText.textContent = 'Select items above to simulate your routine stress level.';
-            } else if (score < 40) {
-                statusBadge.textContent = 'Mild Barrier Fatigue';
-                statusBadge.className = 'text-xs font-bold px-3 py-1 rounded-full bg-sand-200 text-cocoa-800 border border-sand-300';
-                adviceText.textContent = 'Caution: Slight active overlap detected. Consider simplifying morning steps.';
-            } else if (score < 70) {
-                statusBadge.textContent = 'Moderate Stress Disruption';
-                statusBadge.className = 'text-xs font-bold px-3 py-1 rounded-full bg-rosewood-100 text-rosewood-800 border border-rosewood-200';
-                adviceText.textContent = 'Warning: Active stacking is causing micro-tears and moisture loss.';
+            if (checkedCount === 0) {
+                resultEl.textContent = 'Select options above to check your skin';
+                resultEl.className = 'text-sm font-bold text-studio-dark';
+            } else if (checkedCount === 1) {
+                resultEl.textContent = 'Mild irritation detected — your skin needs a quick rest!';
+                resultEl.className = 'text-sm font-bold text-cocoa-700';
             } else {
-                statusBadge.textContent = 'Severe Barrier Breakdown';
-                statusBadge.className = 'text-xs font-bold px-3 py-1 rounded-full bg-rosewood-600 text-white border border-rosewood-700 animate-pulse';
-                adviceText.textContent = 'Emergency Detox Recommended: Immediately halt all retinoids & active acids.';
+                resultEl.textContent = '🚨 Barrier Disruption Detected — We recommend a 14-Day Reset!';
+                resultEl.className = 'text-sm font-bold text-rosewood-600';
             }
         }
 
-        function bookWithScore() {
-            const scoreText = document.getElementById('sim-score-text').textContent;
-            openModal('booking-modal');
-            showToast(`Current Stress Score (${scoreText}) attached to your booking!`);
-        }
-
-        // Service Selection
         function selectService(title, price) {
-            document.getElementById('booking-service-title').textContent = `Book ${title} ($${price})`;
+            document.getElementById('booking-service-title').textContent = `${title} ($${price})`;
             openModal('booking-modal');
         }
 
-        // Cart Management
+        // Cart Logic
         function addToCart(title, price) {
             const existing = cart.find(item => item.title === title);
             if (existing) {
@@ -1037,17 +787,6 @@
             }
             updateCartUI();
             showToast(`Added "${title}" to your cart!`);
-        }
-
-        function updateCartQuantity(title, change) {
-            const item = cart.find(item => item.title === title);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    cart = cart.filter(i => i.title !== title);
-                }
-            }
-            updateCartUI();
         }
 
         function updateCartUI() {
@@ -1068,7 +807,7 @@
             subtotalEl.textContent = `$${totalCost.toFixed(2)}`;
 
             if (cart.length === 0) {
-                itemsList.innerHTML = `<div class="text-center py-12 text-studio-subtle text-xs">Your shopping cart is currently empty.</div>`;
+                itemsList.innerHTML = `<div class="text-center py-12 text-studio-subtle text-xs">Your cart is empty.</div>`;
             } else {
                 itemsList.innerHTML = cart.map(item => `
                     <div class="flex items-center justify-between p-3 rounded-xl bg-studio-cream border border-studio-border">
@@ -1076,19 +815,14 @@
                             <div class="text-xs font-semibold text-studio-dark">${item.title}</div>
                             <div class="text-xs text-rosewood-600 font-bold">$${item.price.toFixed(2)}</div>
                         </div>
-                        <div class="flex items-center gap-2">
-                            <button onclick="updateCartQuantity('${item.title}', -1)" class="w-6 h-6 rounded-full bg-white border border-studio-border flex items-center justify-center text-xs font-bold">-</button>
-                            <span class="text-xs font-bold">${item.quantity}</span>
-                            <button onclick="updateCartQuantity('${item.title}', 1)" class="w-6 h-6 rounded-full bg-white border border-studio-border flex items-center justify-center text-xs font-bold">+</button>
-                        </div>
+                        <span class="text-xs font-bold bg-white px-2 py-1 rounded border">${item.quantity}</span>
                     </div>
                 `).join('');
             }
         }
 
         function toggleCartDrawer() {
-            const drawer = document.getElementById('cart-drawer');
-            drawer.classList.toggle('hidden');
+            document.getElementById('cart-drawer').classList.toggle('hidden');
         }
 
         function checkoutCart() {
@@ -1096,77 +830,47 @@
                 showToast('Your cart is empty!');
                 return;
             }
-            showToast('Redirecting to secure barrier checkout...');
-            setTimeout(() => {
-                cart = [];
-                updateCartUI();
-                toggleCartDrawer();
-                showToast('Thank you! Your barrier order has been simulated.');
-            }, 1500);
+            showToast('Order received! Thank you.');
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
         }
 
-        // Modal Controllers
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-        }
+        // Modal Logic
+        function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+        function toggleMobileNav() { document.getElementById('mobile-menu').classList.toggle('hidden'); }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-        }
-
-        // Mobile Nav
-        function toggleMobileNav() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Toast Notification System
-        function showToast(message) {
+        // Notifications
+        function showToast(msg) {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = 'bg-cocoa-900 text-white text-xs px-4 py-3 rounded-2xl shadow-xl border border-rosewood-500/30 flex items-center gap-2 animate-bounce pointer-events-auto';
-            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-rosewood-400"></i> <span>${message}</span>`;
+            toast.className = 'bg-cocoa-900 text-white text-xs px-4 py-3 rounded-xl shadow-lg flex items-center gap-2 pointer-events-auto';
+            toast.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 text-rosewood-400"></i> <span>${msg}</span>`;
             container.appendChild(toast);
             lucide.createIcons();
-
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
+            setTimeout(() => toast.remove(), 3000);
         }
 
-        // Form Handlers
         function handleBookingSubmit(e) {
             e.preventDefault();
             closeModal('booking-modal');
-            showToast('Consultation request received! Check your email in 5 mins.');
+            showToast('Audit request submitted! We will email you shortly.');
         }
 
         function handlePortalLogin(e) {
             e.preventDefault();
             closeModal('portal-modal');
-            showToast('Welcome back! Loading your barrier dashboard...');
+            showToast('Welcome back to your client portal!');
         }
 
-        function handleChecklistDownload(e) {
-            e.preventDefault();
-            closeModal('checklist-modal');
-            showToast('Download started! Emergency guide sent to email.');
-        }
-
-        function handleNewsletter(e) {
-            e.preventDefault();
-            showToast('Subscribed! Check your inbox for your 10% barrier discount.');
-            e.target.reset();
-        }
-
-        // Interactive Before/After Image Comparison Slider Event Listener
+        // Before/After Slider
         function initBeforeAfterSlider() {
             const container = document.getElementById('before-after-slider');
             if (!container) return;
 
             const overlay = container.querySelector('.before-after-overlay');
             const handle = container.querySelector('.before-after-handle');
-
             let isDragging = false;
 
             const updatePos = (clientX) => {
@@ -1182,13 +886,11 @@
             container.addEventListener('mousedown', (e) => { isDragging = true; updatePos(e.clientX); });
             window.addEventListener('mouseup', () => { isDragging = false; });
             window.addEventListener('mousemove', (e) => { if (isDragging) updatePos(e.clientX); });
-
             container.addEventListener('touchstart', (e) => { isDragging = true; updatePos(e.touches[0].clientX); });
             window.addEventListener('touchend', () => { isDragging = false; });
             window.addEventListener('touchmove', (e) => { if (isDragging) updatePos(e.touches[0].clientX); });
         }
 
-        // Initialization
         document.addEventListener('DOMContentLoaded', () => {
             lucide.createIcons();
             initBeforeAfterSlider();
